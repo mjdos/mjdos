@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
 use App\Http\Controllers\Controller;
 use App\Models\DadosEsp32;
 use Illuminate\Http\Request;
@@ -10,9 +11,30 @@ class SiteController extends Controller
 
     public function index()
     {
-        return view('index');
+        return view('home');
     }
-   
+    
+    public function graficos()
+    {
+        return view('graficos');
+    }
+    
+    public function products()
+    {
+        return view('products');
+    }
+
+    public function dados()
+    {
+        return view('dados');
+    }
+
+    public function apiDados()
+    {   
+        $dados = DadosEsp32::orderby('id', 'desc')->get();
+        return response()->json($dados);
+    }
+
     public function dadosEsp32(Request $request)
     {
         try {

@@ -6,6 +6,9 @@
     <title>MJDOS</title>
 </head>
 <body>
-    Site em desenvolvimento.
+    <div id="app">
+        @yield('content')
+    </div>
+    @vite('resources/js/app.js')
 </body>
 </html>
